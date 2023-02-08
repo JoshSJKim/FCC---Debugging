@@ -52,3 +52,14 @@ console.log(seven + three);     // console will display 73 since 'three' is defi
 console.log(typeof seven);      // "number"
 console.log(typeof three);      // "string"
 ```
+
+## Catch Misspelled Variable and Function Names
+
+- ``` console.log() ``` and ``` typeof ``` are two primary methods to perform interim checks on values and types of program output.
+- One of the most common type of bugs is spelling error.
+- Misspelled variables will cause a 'reference error'.
+- JavaScript variable and function names are case sensitive.
+
+The following error is commonly seen ``` ReferenceError: ("variable") is not defined ```
+
+In such cases, console.log() is a useful tool to identify where the spelling error occurred.
