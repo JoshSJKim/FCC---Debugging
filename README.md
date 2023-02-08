@@ -19,3 +19,36 @@ JavaScript debugging module
 - However, FCC console clears all messages except for the log messages.
 
 - Use the 'inspect' tool on the browser to view the browser console.
+
+## Use typeof to Check the Type of a Variable
+
+- Use ``` typeof ``` to check the data structure, or type, of a variable.
+- This is useful when working with multiple data types.
+- Type errors are common in calculations and function calls.
+
+Examples
+
+```js
+console.log(typeof "");     // "string"
+console.log(typeof 0);      // "number
+console.log(typeof []);     // "object"  NOTE: Arrays are technically objects in JavaScript
+console.log(typeof {});     // "object"
+```
+
+- JavaScript recognizes seven primitive (immutable) data types:
+  - Boolean
+  - Null
+  - Undefined
+  - Number
+  - String
+  - Symbol (new with ES6)
+  - BigInt (new with ES2020)
+- And one type of mutable item: Object
+
+```js
+let seven = 7;
+let three = "3";
+console.log(seven + three);     // console will display 73 since 'three' is defined as a string "3"
+console.log(typeof seven);      // "number"
+console.log(typeof three);      // "string"
+```
