@@ -84,6 +84,7 @@ Based on the pattern of the array, it is expecting to see another "," since it d
 It also displays where the error occurred with the '>' to identify the line and '^' to identify the position.
 ```> 1 | let myArray = [1, 2, 3;```
                             ```^```
+- The '^' would normally be exactly where the expected character is. Kind of hard to express it exactly on markdown file.
 
 Note that the console displays only one error at a time.
 Once the current error is fixed, it will identify the next error in the code, if found.
