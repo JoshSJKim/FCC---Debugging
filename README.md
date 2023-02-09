@@ -84,6 +84,7 @@ Based on the pattern of the array, it is expecting to see another "," since it d
 It also displays where the error occurred with the '>' to identify the line and '^' to identify the position.
 ```> 1 | let myArray = [1, 2, 3;```
                             ```^```
+
 - The '^' would normally be exactly where the expected character is. Kind of hard to express it exactly on markdown file.
 
 Note that the console displays only one error at a time.
@@ -91,5 +92,28 @@ Once the current error is fixed, it will identify the next error in the code, if
 
 If there is a missing closing pair of a quote, the console will display ``` SyntaxError: unknown: Unterminated string constant ```
 
+- It is a good idea to make it a habit to always close the parentheses, bracket, brace, or quote as soon as you open it.
+- Code editor will usually do this for you, but I think it's a good idea to go through with the motion nonetheless.
+
 The contents of the error message will vary depending on the type of error.
 Just look for the '>' and '^' to identify where the error occurred.
+
+## Catch Mixed Usage of Single and Double Quotes
+
+- JavaScript allows the use of both single (') and double (") quotes to declare a string.
+- Deciding which one to use is generally arbitrary.
+- Having two choices is useful when a string has contractions or another piece of text within.
+- Mixing up the type of quotes may close a string too early without knowing.
+  - You may notice that parts of the code looks different in terms of color when a string is closed early.
+
+``` js
+let innerHtml = "<p>Click here to <a href="#Home">return home</a></p>";
+```
+
+The console will display the following error
+
+```SyntaxError: unknown: Missing semicolon. (1:43)```
+
+It is expecting to see a semicolon because the double quote after 'href=' closed the initial opening quote.
+
+- It is still possible to use only one kind of quotes (single or double) by using the escape method with backslash (Refer to 'Escape Character' in Basic JavaScript)
