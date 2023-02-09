@@ -144,3 +144,24 @@ if (x = y) {
 - (x = y) is actually assigning the value of y to x.
 - So you can assign y to anything (except for 'falsy' values like false,, 0, "", NaN, undefined, or Null) and the result will return "Equal!"
 - Therefore, in order for the if statement in the above code to work, it needs to use an equality (==) or a strict equality operator(===).
+
+## Catch Missing Ope and Closing Parenthesis After a Function Call
+
+- It is a common mistake to forget to include the empty parentheses when calling a function or a method if it doesn't take any arguments.
+- The result of a function call is often saved in a variable for other use in the code.
+- To detect this error, log the variable value into the console and see if it returns a function reference or the result of the function return.
+
+```js
+function getNine() {
+  let x = 6;
+  let y = 3;
+  return x + y;
+}
+
+let result = getNine;   // Missing empty parentheses
+console.log(result);
+```
+
+- Console will display an error message ```[Function: getNine]```
+- In the code above, 'result' is assigned to the value of the function itself, not the result of running the function.
+- The message is saying that 'getNine' is supposed to be a function and it requires empty parentheses in order to get its return value.
