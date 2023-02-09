@@ -145,7 +145,7 @@ if (x = y) {
 - So you can assign y to anything (except for 'falsy' values like false,, 0, "", NaN, undefined, or Null) and the result will return "Equal!"
 - Therefore, in order for the if statement in the above code to work, it needs to use an equality (==) or a strict equality operator(===).
 
-## Catch Missing Ope and Closing Parenthesis After a Function Call
+## Catch Missing Open and Closing Parenthesis After a Function Call
 
 - It is a common mistake to forget to include the empty parentheses when calling a function or a method if it doesn't take any arguments.
 - The result of a function call is often saved in a variable for other use in the code.
@@ -165,3 +165,27 @@ console.log(result);
 - Console will display an error message ```[Function: getNine]```
 - In the code above, 'result' is assigned to the value of the function itself, not the result of running the function.
 - The message is saying that 'getNine' is supposed to be a function and it requires empty parentheses in order to get its return value.
+
+## Catch Arguments Passed in the Wrong Order When Calling a Function
+
+- Another common mistake is entering function's arguments in a wrong order.
+- If the arguments are different types, such as arrays and integers, entering it in an incorrect order will likely throw a runtime error.
+- But if the arguments are the same type - for example, all integers - then the result of the function will not make sense.
+
+```js
+function raiseToPower(b, e) {
+  return Math.pow(b, e);
+}
+
+let base = 2;
+let exp = 3;
+let power = raiseToPower(exp, base);    // The order of base and exp are switched
+console.log(power);   // console will display '9'
+```
+
+- By making the mistake of swapping the order of exp and base, the function is still executed and returns the result of 3 to the power of 2, not the expected 2 to the power of 3.
+- Unfortunately, the console does not throw a conspicuous error message.
+- It simply returns the wrong result.
+- 2 to the power of 3 and 3 to the power of 2 is quite simple, and it can be caught with some attention to detail.
+- But if the function is more complex, or if it's using larger numbers, it may not be so easy to detect.
+- So, the lesson is: BE VIGILANT. Check your code thoroughly.
