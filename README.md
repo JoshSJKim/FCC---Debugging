@@ -117,3 +117,30 @@ The console will display the following error
 It is expecting to see a semicolon because the double quote after 'href=' closed the initial opening quote.
 
 - It is still possible to use only one kind of quotes (single or double) by using the escape method with backslash (Refer to 'Escape Character' in Basic JavaScript)
+
+## Catch Use of Assignment Operator Instead of Equality Operator
+
+- Branching programs: programs that do different things if certain conditions are met.
+  - It relies on if, else if and else statements in JavaScript.
+  - The condition sometimes takes the form of testing whether a result is equal to a value.
+- This logic, if verbalized, is "if x equals y, then..."
+- In code, we use the '=' equal sign.
+- But this is also the assignment operator, which can cause some confusion in programming.
+- So we use '==' for equality, and '===' for strict equality.
+
+```js
+let x = 7;
+let y = 9;
+let result = "to come";
+
+if (x = y) {
+  result = "Equal!";
+} else {
+  result = "Not Equal!";
+}
+```
+
+- In the above example, at first glance it looks like it is saying 'if x equals y, then return "Equal!", especially to those who do not understand JavaScript.
+- (x = y) is actually assigning the value of y to x.
+- So you can assign y to anything (except for 'falsy' values like false,, 0, "", NaN, undefined, or Null) and the result will return "Equal!"
+- Therefore, in order for the if statement in the above code to work, it needs to use an equality (==) or a strict equality operator(===).
