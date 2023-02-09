@@ -184,8 +184,16 @@ console.log(power);   // console will display '9'
 ```
 
 - By making the mistake of swapping the order of exp and base, the function is still executed and returns the result of 3 to the power of 2, not the expected 2 to the power of 3.
-- Unfortunately, the console does not throw a conspicuous error message.
+- Unfortunately, the console does not throw an obvious error message.
 - It simply returns the wrong result.
 - 2 to the power of 3 and 3 to the power of 2 is quite simple, and it can be caught with some attention to detail.
 - But if the function is more complex, or if it's using larger numbers, it may not be so easy to detect.
 - So, the lesson is: BE VIGILANT. Check your code thoroughly.
+
+## Catch Off By One Errors When Using Indexing
+
+- 'Off by one errors' (OBOE) usually happens when you're trying to access a specific index of a string or array, or when looping over the indices of them.
+- Remember JavaScript index begins at zero, not one.
+- It means that the last index is always one less than the length of the array.
+- If by mistake you try to access an index equal to the array length, it will throw an "index out of range" error, or print "undefined" in the console.
+- Just remember: JAVASCRIPT INDEXING BEGINS AT 'ZERO'
