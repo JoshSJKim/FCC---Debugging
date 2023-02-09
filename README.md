@@ -60,6 +60,35 @@ console.log(typeof three);      // "string"
 - Misspelled variables will cause a 'reference error'.
 - JavaScript variable and function names are case sensitive.
 
-The following error is commonly seen ``` ReferenceError: ("variable") is not defined ```
+The following error is commonly seen ``` ReferenceError: ("misspelled-variable") is not defined ```
 
 In such cases, console.log() is a useful tool to identify where the spelling error occurred.
+
+## Catch Unclosed Parentheses, Brackets, Braces and Quotes
+
+- All parentheses, brackets, braces, and quotes must have an opening and closing pair.
+- If either one of the pair is missing, the console will display a ``` SyntaxError ```
+
+The following code is missing some of its pairs
+
+```js
+let myArray = [1, 2, 3;
+let arraySum = myArray.reduce((previous, current =>  previous + current);
+console.log(`Sum of array values is: ${arraySum}`);
+```
+
+The console displays something like this
+``` SyntaxError: unknown: Unexpected token, expected "," (1:22) ```
+Based on the pattern of the array, it is expecting to see another "," since it doesn't assume that the contents of the array is complete.
+
+It also displays where the error occurred with the '>' to identify the line and '^' to identify the position.
+```> 1 | let myArray = [1, 2, 3;```
+                            ```^```
+
+Note that the console displays only one error at a time.
+Once the current error is fixed, it will identify the next error in the code, if found.
+
+If there is a missing closing pair of a quote, the console will display ``` SyntaxError: unknown: Unterminated string constant ```
+
+The contents of the error message will vary depending on the type of error.
+Just look for the '>' and '^' to identify where the error occurred.
