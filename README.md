@@ -237,3 +237,34 @@ console.log(matrix);
 - In order for the above code to execute as intended, the 'row' variable needs to be placed after the first 'for' loop.
   - That will allow the (j) index to run and push 0 into the row array 'n' number of times and push the completed row array to the newArray. (inner loop)
   - This pattern will repeat 'm' number of times (outer loop) before the function terminates and returns the complete newArray.
+
+## Prevent Infinite Loops with a Valid Terminal Condition
+
+- Loops are great tools, but it may cause all sorts of problems if the terminal condition is not set properly.
+- An example of an infinite loop is shown below:
+
+  ```js
+  function loopy() {
+    while(true) {
+      console.log("Hello, World!");
+    }
+  }   // DO NOT CALL THIS FUNCTION
+  ```
+
+- It's the programmer's responsibility to ensure that the terminal condition that tells the program when to break the loop is ultimately reached.
+- A common mistake would incrementing or decrementing a counter variable in the wrong direction, or resetting a counter or index variable within the loop code.
+
+Another example:
+
+```js
+function myFunc() {
+  for (let i = 1; i != 4; i += 2); {
+    console.log("Still going!");
+  }
+}
+```
+
+- In the above code, when myFunc() is called, variable 'i' will begin at '1' and increment by '2' while 'i' is not equal to '4'.
+- The problem is, since 'i' begins counting at 1, an odd number, and it increments by '2', it will never equal '4'. In other words, it will never break the loop.
+- to fix this problem, variable 'i' can be assigned with an even number that is less than '4' (which only leaves '2'), or '0'.
+- Another method would be to modify the comparison operator so that the loop breaks when 'i' is less than or equal to '4' (i <= 4).
