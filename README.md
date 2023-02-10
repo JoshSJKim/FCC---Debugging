@@ -268,3 +268,8 @@ function myFunc() {
 - The problem is, since 'i' begins counting at 1, an odd number, and it increments by '2', it will never equal '4'. In other words, it will never break the loop.
 - to fix this problem, variable 'i' can be assigned with an even number that is less than '4' (which only leaves '2'), or '0'.
 - Another method would be to modify the comparison operator so that the loop breaks when 'i' is less than or equal to '4' (i <= 4).
+
+## Final Statement
+
+I think the most important lesson that I could learn from this module is that ATTENTION TO DETAIL is the most effective method to preventing bugs.
+Errors and bugs will be inevitable. Stay Vigilant.
