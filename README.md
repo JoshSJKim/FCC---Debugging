@@ -197,3 +197,43 @@ console.log(power);   // console will display '9'
 - It means that the last index is always one less than the length of the array.
 - If by mistake you try to access an index equal to the array length, it will throw an "index out of range" error, or print "undefined" in the console.
 - Just remember: JAVASCRIPT INDEXING BEGINS AT 'ZERO'
+
+## Use Caution When Re-initializing Variables Inside a Loop
+
+- Another thing to watch out for is placing variables inside a loop.
+- Depending on the variable, it may need to be placed outside of the function (global scope), or inside the function (block scope).
+  
+Consider the following example
+
+```js
+function zeroArray (m, n) {
+  let newArray = [];
+  let row = [];
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      row.push(0);
+    }
+    newArray.push(row);
+  }
+  return newArray;
+}
+
+let matrix = zeroArray(3, 2);
+console.log(matrix);
+```
+
+- The intention of the above code is to create 'm' number of arrays with 'n' number of zeros in each array.
+- When ```function zeroArray(3, 2)``` is called, it is supposed to return 3 arrays with 2 zeros in each array ```[[0, 0], [0, 0], [0, 0]]```
+- When the function runs as shown above:
+  - first it will create an empty newArray and an empty row array
+  - index (i) will start at zero, and increment by 1 while (i) is less than 'm' (3).
+  - then for the inner loop, index (j) will begin at 0 and increment by 1 while (j) is less than 'n' (2).
+  - For the specified conditions, 0 will be pushed into the row array.
+  - Then that row array will be pushed into the newArray.
+  - In other words, 0 will be pushed into the row array twice (j) and repeated thrice (i), resulting in 6 zeros in a newArray before it is returned.
+  - This pattern will repeat three times (m value) before the function terminates, resulting in 3 separate newArray with 6 zeros each.
+- At least I think that is what is happening here.
+
+- In order for the above code to execute as intended, the 'row' variable needs to be placed after the first 'for' loop.
+  - That will allow the (j) index to run and push 0 into the row array 'n' number of times and push the completed row array to the newArray. (inner loop)
+  - This pattern will repeat 'm' number of times (outer loop) before the function terminates and returns the complete newArray.
