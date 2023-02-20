@@ -210,6 +210,7 @@ function zeroArray (m, n) {
   let newArray = [];
   let row = [];
   for (let i = 0; i < m; i++) {
+    // place 'let row = [];' here
     for (let j = 0; j < n; j++) {
       row.push(0);
     }
